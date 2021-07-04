@@ -1,0 +1,78 @@
+// ../../../assets/styles/_vars
+@import "../../../assets/styles/vars";
+
+.make-transfer-container{
+    position: relative;
+    // width: 235px;
+    background-color: $white;
+    min-height: 345px;
+    height: auto;
+    border-radius: 10px;
+    .acc-fields{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        .input-container {
+            margin-top: 8px;
+            font-weight: 700;
+            font-family: sans-serif;
+            font-size: 12px;
+            .form-input{
+                width: 100%;
+            }
+        }
+    }
+    .make-transfer-header{
+        padding: 20px 12px;
+        height: 42px;
+        background-color: $primary-blue;
+        // width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: flex;
+        align-items: center;
+        .icon-container{
+            height: 10px;
+            width: 10px;
+        }
+        .header-text{
+            color: $white;
+        }
+    }
+    .bottom-container{
+        bottom: 15px;
+        position: absolute;
+        right: 10px;
+      
+    }
+    
+}
+input[type="text"] {
+    -webkit-box-sizing: border-box; // Safari/Chrome, other WebKit
+    -moz-box-sizing: border-box;    // Firefox, other Gecko
+    box-sizing: border-box;         // Opera/IE 8+
+    border: 1px solid $lightgray;
+    height: 35px;
+    border-radius: 3px;
+}
+
+input[type="button"] {
+    background-color: $chocolate;
+    color: $white;
+    border: $oldlace;
+    height: 28px;
+    width: 65px;
+    border-radius: 5px;
+}
+
+.first-header{
+    color: $white;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.second-header{
+    color: $white;
+    font-family: sans-serif;
+    margin:  0 5px;
+}
+

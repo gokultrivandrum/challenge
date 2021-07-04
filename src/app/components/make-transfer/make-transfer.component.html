@@ -1,0 +1,58 @@
+<div>
+    <form [formGroup]="form">
+        <div class="make-transfer-container">
+            <div class="make-transfer-header">
+                <div class="icon-container">
+                    <fa-icon [icon]="faCreditCard"></fa-icon>
+                </div>
+                <div> <span class="first-header">Make</span> <span class="second-header">Transfer</span> </div>
+            </div>
+            <div class="acc-fields">
+                <div class="form-group">
+                    <div class="input-container">From Account</div>
+                    <div class="input-container">
+                        <input type="text" formControlName="fromAccount" class="form-control form-input" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-container">To Account</div>
+                    <div class="input-container">
+                        <input type="text" formControlName="toAccount" class="form-control"
+                            placeholder="Type an account number"
+                            [ngClass]="{ 'is-invalid': submitted && f.toAccount.errors }" />
+                        <div *ngIf="submitted && f.toAccount.errors" class="invalid-feedback">
+                            <div *ngIf="f.toAccount.errors.required">To Account is required</div>
+                            <div *ngIf="f.toAccount.errors.minlength">
+                                To Account must be at least 6 characters
+                            </div>
+                            <div *ngIf="f.toAccount.errors.maxlength">
+                                To Account must not exceed 20 characters
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-container">Amount</div>
+                    <div class="input-container">
+                        <i class="fas fa-euro-sign"></i>
+                        <fa-icon [icon]="faEuroSign"></fa-icon>       
+                        <input type="text" formControlName="amount" class="form-control" placeholder="Specify an amount"
+                            [ngClass]="{ 'is-invalid': submitted && f.toAccount.errors }" />
+                        <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                            <div *ngIf="f.amount.errors.required">Amount is required</div>
+                            <div *ngIf="f.amount.errors.minlength">
+                                Amount must be at least 6 characters
+                            </div>
+                            <div *ngIf="f.amount.errors.maxlength">
+                                Amount must not exceed 20 characters
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-container">
+                <app-submit-button class="submit-button" (submitForm)="onSubmit($event)"></app-submit-button>
+            </div>
+        </div>
+    </form>
+</div>

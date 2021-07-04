@@ -1,0 +1,52 @@
+.pop-up-container{
+    width: 50%;
+    height: 250px;
+    position: absolute;
+    z-index: 999;
+    background-color: white;
+    border: solid 1px #aaa7a7;;
+    border-radius: 10px;
+    left: 24%;
+}
+.pop-up-header{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    border-bottom: solid 1px #e6e3e3;
+}
+
+.content-container{
+    display: flex;
+    flex-direction: column;
+    padding: 0 12px;
+    .items{
+        margin-bottom: 6px;
+    }
+    // border-bottom: solid 1px #e6e3e3;
+}
+
+.pop-up-footer{
+    border-top: solid 1px #e6e3e3;
+    height: 55px;
+    position: absolute;
+    width: 100%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 10px;
+}
+.button-cont{
+    margin-right: 5px;
+}
+.dialog-close{
+    width: 20px; height: 20px;
+}
+.dialog-title{
+    font-size: 20px;
+}

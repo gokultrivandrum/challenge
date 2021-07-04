@@ -1,0 +1,25 @@
+<section class="over-view-container">
+    
+    <div *ngIf="showModal">
+        <app-dialog-content [content]="modalContent" (submitForm)="dialogConfirmation($event)"></app-dialog-content>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-sd-12">
+            <div class="transfer-item left-panel">
+                <app-make-transfer (submitForm)="onSubmit($event)"></app-make-transfer>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-12 col-sd-12">
+            <div class="transfer-item right-panel">
+                <app-transcation-history></app-transcation-history>
+            </div>
+        </div>
+    </div>
+    <!-- <app-dialog-content></app-dialog-content> -->
+    <!-- <div class="transfer-item">
+        <app-make-transfer></app-make-transfer>
+    </div>
+    <div class="transfer-list">
+        <app-transcation-history></app-transcation-history>
+    </div> -->
+</section>

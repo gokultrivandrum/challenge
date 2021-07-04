@@ -1,0 +1,35 @@
+<div class="pop-up-container"
+   > 
+   <div >
+    <div class="pop-up-header">
+      <div class="dialog-title"> <b> Review </b>  Transfer</div>
+      <div class="dialog-close" (click)="triggerSubmit(false)">
+        <i class="far fa-times"></i>
+      </div>
+    </div>
+    <div class="content-container">
+      <div class="items"> <i>Are you ready to send out this transfer</i> </div>
+      <div class="items"> <b>It will be send to account</b> </div>
+      <div class="items"> {{content.toAccount}} </div>
+      <div class="items"> <b>with amount of </b> </div>
+      <div class="items"> <b>€ {{content.amount}}</b> </div>
+    </div>
+    <div class="pop-up-footer">
+      <button class="btn btn-primary js-trigger-form" 
+      (click)="triggerSubmit(false)"
+      >Close</button>
+      <button
+        class="btn btn-primary js-trigger-form"
+        (click)="triggerSubmit(true)"
+        data-test-hook="dialogSubmitButton"
+        type="submit">
+        Send Transfer
+      </button>
+    </div>
+   </div>
+
+
+   
+</div>
+
+

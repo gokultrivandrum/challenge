@@ -1,0 +1,38 @@
+<!-- <p>transcation-history works! right</p> -->
+<!-- <app-filter></app-filter> -->
+
+<!-- <app-transaction-item></app-transaction-item> -->
+
+<div class="make-transfer-container">
+  <div class="make-transfer-header">
+    <div class="icon-container">
+      <fa-icon [icon]="faList"></fa-icon>
+    </div> 
+    <div>  
+      <span class="first-header">Transaction</span> <span class="second-header">List</span> 
+    </div>
+  </div>
+  <div>
+     <div class="app-filter">
+      <app-filter (inputChange)="filterArgument($event)"></app-filter>
+     </div> 
+      <div class="acc-fields">
+        <div *ngFor="let transcationDetails of transcationData | myFilter:filterArgs">
+          <div class="transaction-list">
+            <div style="display: flex;align-items: center; padding: 0 10px;">
+                <span class="list-month">{{transcationDetails.dates.valueDate | date: "MMM d" }}</span>
+                <span class="content-details">
+                  <span class="list-content-header">{{transcationDetails.merchant.name}}</span>
+                  <span class="list-content-bottom">{{transcationDetails.transaction.type}}</span>
+                </span>
+            </div>
+            <div style="display: flex;align-items: center; padding: 0 10px;">
+              <span class="amount">{{transcationDetails.transaction.amountCurrency.currencyCode}} {{transcationDetails.transaction.amountCurrency.amount}}</span>
+          </div>
+          </div>
+        </div>
+      </div>
+     
+      <div class="border-line"></div>
+  </div>
+</div>
