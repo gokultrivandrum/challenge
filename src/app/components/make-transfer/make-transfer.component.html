@@ -33,15 +33,21 @@
                 </div>
                 <div class="form-group">
                     <div class="input-container">Amount</div>
-                    <div class="input-container">
-                        <i class="fas fa-euro-sign"></i>
-                        <fa-icon [icon]="faEuroSign"></fa-icon>       
+                    <div class="input-container input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <fa-icon [icon]="faEuroSign"></fa-icon>       
+                            </div>
+                          </div>
                         <input type="text" formControlName="amount" class="form-control" placeholder="Specify an amount"
                             [ngClass]="{ 'is-invalid': submitted && f.toAccount.errors }" />
                         <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
                             <div *ngIf="f.amount.errors.required">Amount is required</div>
-                            <div *ngIf="f.amount.errors.minlength">
+                            <div *ngIf="f.amount.errors.validAmount">
                                 Amount must be at least 6 characters
+                            </div>
+                            <div *ngIf="f.amount.errors.validAmount">
+                                Balance cant go below € 500
                             </div>
                             <div *ngIf="f.amount.errors.maxlength">
                                 Amount must not exceed 20 characters

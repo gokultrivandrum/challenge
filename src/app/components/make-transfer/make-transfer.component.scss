@@ -32,8 +32,8 @@
         display: flex;
         align-items: center;
         .icon-container{
-            height: 10px;
-            width: 10px;
+            margin-right: 10px;
+            color: $white;
         }
         .header-text{
             color: $white;
@@ -52,7 +52,6 @@ input[type="text"] {
     -moz-box-sizing: border-box;    // Firefox, other Gecko
     box-sizing: border-box;         // Opera/IE 8+
     border: 1px solid $lightgray;
-    height: 35px;
     border-radius: 3px;
 }
 

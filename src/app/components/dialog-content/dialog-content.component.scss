@@ -1,12 +1,12 @@
 .pop-up-container{
-    width: 50%;
-    height: 250px;
+    width: 30%;
+    height: 320px;
     position: absolute;
     z-index: 999;
     background-color: white;
     border: solid 1px #aaa7a7;;
     border-radius: 10px;
-    left: 24%;
+    left: 32%;
 }
 .pop-up-header{
     height: 40px;
@@ -23,7 +23,8 @@
     flex-direction: column;
     padding: 0 12px;
     .items{
-        margin-bottom: 6px;
+        margin-bottom: 8px;
+        margin-top: 8px;
     }
     // border-bottom: solid 1px #e6e3e3;
 }

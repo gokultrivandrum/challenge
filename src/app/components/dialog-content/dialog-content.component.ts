@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { faTimes } from '@fortawesome/free-solid-svg-icons'; 
 
 @Component({
   selector: 'app-dialog-content',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 export class DialogContentComponent implements OnInit {
   @Input() content: any;
   @Output() submitForm: EventEmitter<any> = new EventEmitter();
-
+  faTimes=faTimes;
   constructor() { }
 
   ngOnInit(): void {

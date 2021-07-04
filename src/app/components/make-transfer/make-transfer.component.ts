@@ -12,12 +12,15 @@ import { faEuroSign, faCreditCard } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './make-transfer.component.html',
   styleUrls: ['./make-transfer.component.scss']
 })
+ 
+
 export class MakeTransferComponent implements OnInit {
   form: any = FormGroup;
   disabled: boolean = true;
   submitted = false;
   faEuroSign = faEuroSign ; 
-  faCreditCard = faCreditCard;                            
+  faCreditCard = faCreditCard; 
+  totalBalance = 5824.76;  
   @Output() submitForm: EventEmitter<any> = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder) {
@@ -37,9 +40,16 @@ export class MakeTransferComponent implements OnInit {
             Validators.maxLength(20)
           ]
         ],
-        amount: ['', [Validators.required]]
-      },
+        amount: ['', [Validators.required, this.comparePassword]]
+      }
     );
+  }
+  comparePassword(control: AbstractControl) {
+                     
+    if ((control.value.length - 5824.76) > 500) {
+      return { validAmount: true };
+    }
+    return null;
   }
 
  

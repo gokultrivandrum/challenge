@@ -31,13 +31,13 @@ export class TranscationHistoryComponent implements OnInit {
           transaction!: {
             amountCurrency: {
               amount:'',
-              currencyCode:''
+              currencyCode:'EUR'
             },
-            type:'',
-            creditDebitIndicator:''
+            type:'Transaction',
+            creditDebitIndicator:'DBIT'
           },
           merchant!: {
-            name:'',
+            name:'Jerry Hildreth',
             accountNumber:''
           }
         }

@@ -4,7 +4,7 @@
     <div class="pop-up-header">
       <div class="dialog-title"> <b> Review </b>  Transfer</div>
       <div class="dialog-close" (click)="triggerSubmit(false)">
-        <i class="far fa-times"></i>
+        <fa-icon [icon]="faTimes"></fa-icon>
       </div>
     </div>
     <div class="content-container">
@@ -15,16 +15,21 @@
       <div class="items"> <b>€ {{content.amount}}</b> </div>
     </div>
     <div class="pop-up-footer">
-      <button class="btn btn-primary js-trigger-form" 
-      (click)="triggerSubmit(false)"
-      >Close</button>
-      <button
+      <div class="button-cont">
+        <button class="btn btn-primary js-trigger-form" 
+        (click)="triggerSubmit(false)"
+        >Close</button>
+      </div>
+      <div>      
+        <button
         class="btn btn-primary js-trigger-form"
         (click)="triggerSubmit(true)"
         data-test-hook="dialogSubmitButton"
         type="submit">
         Send Transfer
       </button>
+    </div>
+
     </div>
    </div>
 
