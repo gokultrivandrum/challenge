@@ -1,5 +1,9 @@
 # Peachtree Bank: Make a Transaction
 
+Inorder to run the application
+
+npm run start
+
 ## Purpose
 
 The purpose of this test is to showcase your frontend development skills and your knowledge of modern frontend frameworks and best practices. Please read the full requirements before starting your assignment. We ask you to focus on implementing user stories completely and keep the implementation simple.
