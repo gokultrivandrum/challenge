@@ -41,12 +41,10 @@ export class MakeTransferComponent implements OnInit {
             Validators.maxLength(20)
           ]
         ],
-        amount: ['', [Validators.required, Validators.pattern('^[^ ][0-9 ]+[^ ]$')]],        
+        amount: ['', [Validators.required, Validators.pattern('^[^ ][0-9 ]+[^ ]$'), this.comparisonValidator]],        
         myControl2: this.totalBalance
       }
     );
-    this.form.validator = this.comparisonValidator;
-    
     this.sharedService.transferedData.subscribe((trandsferedDetails) => {
       if(trandsferedDetails){
         this.totalBalance = (this.totalBalance - Number(trandsferedDetails?.amount));
@@ -55,12 +53,17 @@ export class MakeTransferComponent implements OnInit {
     });
 
   }
-  comparisonValidator(form: FormGroup) {
-    if((form.get('myControl2')?.value - form.get('amount')?.value) <= 500){
-      return { validAmount: true };
+  comparisonValidator(control:  AbstractControl) {
+    if (control.parent != undefined) {
+      if((control.parent.get('myControl2')?.value - control.parent.get('amount')?.value) <= 500){
+        return { validAmount: true };
+      }
     }
+
     return null;
   }
+  
+
 
   get validAmount(): AbstractControl {
     return this.form.controls['amount'];

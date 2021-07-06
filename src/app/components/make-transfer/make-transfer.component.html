@@ -41,19 +41,17 @@
                           </div>
                         <input type="text" formControlName="amount" class="form-control" placeholder="Specify an amount"
                             [ngClass]="{ 'is-invalid': submitted && f.toAccount.errors }" />
-                        <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
-                            <div *ngIf="f.amount.errors.required">Amount is required</div>
-                            <div *ngIf="f.amount.errors.validAmount">
+
+                        <div *ngIf="f.amount?.errors?.validAmount" class="custom-error">
+                            Balance cant go below € 500
+                        </div>
+                        <div  *ngIf="submitted" class="invalid-feedback">
+                            <div *ngIf="f.amount.errors?.required">Amount is required</div>
+                            <div *ngIf="f.amount.errors?.validAmount">
                                 Amount must be at least 6 characters
                             </div>
                             
-                            <div *ngIf="validAmount.errors?.validAmount">
-                                Balance cant go below € 500
-                            </div>
-                            <div *ngIf="f.amount.errors.maxlength">
-                                Amount must not exceed 20 characters
-                            </div>
-                            <div *ngIf="f.amount.errors.pattern">
+                            <div *ngIf="f.amount.errors?.pattern">
                                 Amount can be decimal number
                             </div>
                         </div>
