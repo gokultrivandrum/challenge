@@ -1,7 +1,10 @@
 # Peachtree Bank: Make a Transaction
 
+Git Hub Repo: https://github.com/gokultrivandrum/challenge
+
 Inorder to run the application
 
+npm install
 npm run start
 
 ## Purpose
