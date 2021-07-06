@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TranscationHistoryComponent } from './transcation-history.component';
+import { BankingSharedService } from '../../../shared/banking-shared.service';
+import { DataloadService } from '../../../config/config.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {FilterPipe} from '../../../shared/filter.pipe';
 
 describe('TranscationHistoryComponent', () => {
   let component: TranscationHistoryComponent;
@@ -8,7 +12,12 @@ describe('TranscationHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TranscationHistoryComponent ]
+      imports: [HttpClientTestingModule], 
+      declarations: [ TranscationHistoryComponent, FilterPipe ],
+      providers: [
+        { provide: BankingSharedService},
+        { provide: DataloadService}
+      ]
     })
     .compileComponents();
   });

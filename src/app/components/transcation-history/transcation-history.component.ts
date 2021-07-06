@@ -13,8 +13,7 @@ export class TranscationHistoryComponent implements OnInit {
 
   transcationData: any;
   filterArgs: string = '';
-  faList =faList;
-
+  faList = faList;
   constructor(public httpService: DataloadService, public sharedService: BankingSharedService) { }
 
   ngOnInit(): void {

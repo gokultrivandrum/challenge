@@ -5,15 +5,26 @@ import {
   AbstractControl,
   FormBuilder,
   FormGroup,
-  Validators
+  Validators, 
+  ReactiveFormsModule,
+  FormsModule
 } from '@angular/forms';
+import {BankingSharedService} from '../../../shared/banking-shared.service';
+
 describe('MakeTransferComponent', () => {
   let component: MakeTransferComponent;
   let fixture: ComponentFixture<MakeTransferComponent>;
   let  formBuilder: FormBuilder;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MakeTransferComponent ]
+      imports: [
+        FormsModule,
+        ReactiveFormsModule
+      ],
+      declarations: [ MakeTransferComponent ],
+      providers: [
+        { provide: BankingSharedService}
+      ]
     })
     .compileComponents();
   });

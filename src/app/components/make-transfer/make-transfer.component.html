@@ -46,11 +46,15 @@
                             <div *ngIf="f.amount.errors.validAmount">
                                 Amount must be at least 6 characters
                             </div>
-                            <div *ngIf="f.amount.errors.validAmount">
+                            
+                            <div *ngIf="validAmount.errors?.validAmount">
                                 Balance cant go below € 500
                             </div>
                             <div *ngIf="f.amount.errors.maxlength">
                                 Amount must not exceed 20 characters
+                            </div>
+                            <div *ngIf="f.amount.errors.pattern">
+                                Amount can be decimal number
                             </div>
                         </div>
                     </div>

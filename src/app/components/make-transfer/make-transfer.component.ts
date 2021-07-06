@@ -6,6 +6,7 @@ import {
   Validators
 } from '@angular/forms';
 import { faEuroSign, faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import { BankingSharedService } from '../../../shared/banking-shared.service';
 
 @Component({
   selector: 'app-make-transfer',
@@ -20,10 +21,10 @@ export class MakeTransferComponent implements OnInit {
   submitted = false;
   faEuroSign = faEuroSign ; 
   faCreditCard = faCreditCard; 
-  totalBalance = 5824.76;  
+  totalBalance:number = 5824.76;  
   @Output() submitForm: EventEmitter<any> = new EventEmitter();
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, public sharedService: BankingSharedService) {
     
    }
 
@@ -31,7 +32,7 @@ export class MakeTransferComponent implements OnInit {
    ngOnInit(): void {
     this.form = this.formBuilder.group(
       {
-        fromAccount: [{value: 'My Personal Account : € 5824.76', disabled: true}, [Validators.required]],
+        fromAccount: [{value: `My Personal Account : € ${this.totalBalance}`, disabled: true}, [Validators.required]],
         toAccount: [
           '',
           [
@@ -40,16 +41,29 @@ export class MakeTransferComponent implements OnInit {
             Validators.maxLength(20)
           ]
         ],
-        amount: ['', [Validators.required, this.comparePassword]]
+        amount: ['', [Validators.required, Validators.pattern('^[^ ][0-9 ]+[^ ]$')]],        
+        myControl2: this.totalBalance
       }
     );
+    this.form.validator = this.comparisonValidator;
+    
+    this.sharedService.transferedData.subscribe((trandsferedDetails) => {
+      if(trandsferedDetails){
+        this.totalBalance = (this.totalBalance - Number(trandsferedDetails?.amount));
+      }
+
+    });
+
   }
-  comparePassword(control: AbstractControl) {
-                     
-    if ((control.value.length - 5824.76) > 500) {
+  comparisonValidator(form: FormGroup) {
+    if((form.get('myControl2')?.value - form.get('amount')?.value) <= 500){
       return { validAmount: true };
     }
     return null;
+  }
+
+  get validAmount(): AbstractControl {
+    return this.form.controls['amount'];
   }
 
  
